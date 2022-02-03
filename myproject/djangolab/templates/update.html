@@ -1,0 +1,18 @@
+<title>
+    Update
+</title>
+
+<center>
+
+    <br><br><br>
+    <form form method = "GET" action="{% url 'update_db' %}">
+        {%csrf_token%}
+        <div>
+            <label>Choose Username: </label>
+            <input type="text" placeholder="Enter Username" name="username" required><br><br>
+            <label New value : </label>
+            <input type="text" placeholder="Enter new Username" name="new_username" required><br><br>
+            <button type="submit">update</button>
+        </div>
+    </form>
+</center>

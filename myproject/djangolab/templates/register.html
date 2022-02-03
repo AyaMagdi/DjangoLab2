@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+ {%block Title%}
+       Register
+      {%endblock%}
+
+ {%block header%}
+    Welcome to register page!
+    {%endblock%}
+
+
+ {%block content%}
+<br> <br>
+<form form method = "POST" action="{% url 'insert' %}">
+        {%csrf_token%}
+        <div>
+            <label>Username : </label>
+            <input type="text" placeholder="Enter Username" name="username" required><br><br>
+            <label>Password : </label>
+            <input type="password" placeholder="Enter Password" name="password" required><br><br>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    {%endblock%}
