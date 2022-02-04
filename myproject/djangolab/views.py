@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Myusers
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def open_base(request):
@@ -7,6 +9,7 @@ def open_base(request):
 
 
 def open_login(request):
+    logout(request)
     return render(request, "login.html")
 
 def open_profile(request):
@@ -17,6 +20,7 @@ def insert(request):
     password= request.POST['password']
 
     Myusers.objects.create(name=name, password=password)
+    User.objects.create_user(username=name, password=password, is_staff=True)
     return render(request, "login.html")
 
 def open_register(request):
@@ -29,10 +33,15 @@ def handle_login(request):
     for user in users:
         if user.name==name and user.password== password:
             request.session['username'] = name
+
+            user = authenticate(request, username=name, password=password)
+            if user is not None:
+                login(request, user)
             return render(request, "profile.html")
         else:
             pass
     erorr={'erorr': "Wrong name or password"}
+
     return render(request, "login.html",erorr)
 
 
