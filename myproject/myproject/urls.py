@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('base/', open_base, name='base'),
     path('login/', open_login, name='login'),
-    path('', open_login, name='login'),
+    path('/', open_login, name='login'),
     path('open_profile/', open_profile, name='open_profile'),
     path('insert/', insert, name='insert'),
     path('register/', open_register, name='register'),
@@ -31,5 +31,10 @@ urlpatterns = [
     path('open_update_page', open_update_page, name='open_update_page'),
     path('update_db', update_db, name='update_db'),
     path('search', search, name='search'),
+    path('insert_forms', insert_forms, name='insert_forms'),
+    path('insert_model_forms', insert_model_forms, name='insert_model_forms'),
+    path('update_forms', update_forms, name='update_forms'),
+    path('User_List', User_List.as_view(), name='User_List'),
 ]
+
 

@@ -6,13 +6,25 @@
  {%block header%}
 
    <p>Welcome {{request.session.username}} to profile page!</p>
+
+
     {%endblock%}
 
 
  {%block content%}
     <center>
         <a href="{% url 'list' %}"> List all users</a>
+        <br><br>
+        <a href="{% url 'insert_forms' %}">insert new user (forms.form)</a>
         <br> <br>
+         <a href="{% url 'insert_model_forms' %}">insert new user (model.form)</a>
+        <br> <br>
+             <a href="{% url 'update_forms' %}">Update new user (update.form)</a>
+        <br> <br>
+
+             <a href="{% url 'User_List' %}">User list (generic view)</a>
+          <br> <br>
     <a href="{% url 'login' %}">Logout</a>
  </center>
     {%endblock%}
+
